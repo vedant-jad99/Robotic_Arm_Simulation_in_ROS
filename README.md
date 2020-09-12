@@ -61,3 +61,13 @@ This is version 1.0. We are planning several updates and they will be uploaded h
 
 ## Note
 If cloning the repository, clone it in your catkin_ws/src folder and run catkin_make command.
+
+## How to run
+After running catkin_make. Open a terminal. Run `roscore`.
+
+Open a new tab in terminal.
+1. Move in the catkin_ws directory using `cd catkin_ws`.
+2. Once there type the following command in terminal - `source devel/setup.bash`.
+3. Now type, `roslaunch robot_arm bot.launch`, to launch gazebo.
+
+Open another tab in terminal. Repeat steps 1 and 2 from above paragraph. Now run, `rosrun robot_arm write_pos.py`, to perform actions on the arm.
