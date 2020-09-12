@@ -131,6 +131,98 @@
 		<child link="hand"/>
 		<origin rpy="0 0 0" xyz="0.0 0.0 0.425"/>
 	</joint>
+	<link name="left_gripper_base">
+		<inertial>
+			<mass value="0.01"/>
+			<inertia ixx="8.23e-8" iyy="8.23e-8" izz="3.47e-7" ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+		<visual>
+			<geometry>
+				<box size="0.005 0.005 0.02"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.005 0.005 0.02"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="l_g_base" type="revolute">
+		<axis xyz="1 0 0"/>
+		<limit velocity="1.0" effort="30.0" lower="0" upper="0.5236"/>
+		<origin rpy="-0.9162 0 0" xyz="0 0.02 0.035"/>
+		<parent link="hand"/>
+		<child link="left_gripper_base"/>
+	</joint>
+	<link name="right_gripper_base">
+		<inertial>
+			<mass value="0.01"/>
+			<inertia ixx="8.23e-8" iyy="8.23e-8" izz="3.47e-7" ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+		<visual>
+			<geometry>
+				<box size="0.005 0.005 0.02"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.005 0.005 0.02"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="r_g_base" type="revolute">
+		<axis xyz="1 0 0"/>
+		<limit velocity="1.0" effort="100.0" upper="0" lower="-0.5236"/>
+		<origin rpy="0.9162 0 0" xyz="0 -0.02 0.035"/>
+		<parent link="hand"/>
+		<child link="right_gripper_base"/>
+	</joint>
+	<link name="left_gripper_finger">
+		<inertial>
+			<mass value="0.01"/>
+			<inertia ixx="1.57e-7" iyy="1.57e-7" izz="6.8e-7" ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+		<visual>
+			<geometry>
+				<box size="0.008 0.008 0.05"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.008 0.008 0.05"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="l_g_finger" type="fixed">
+		<origin rpy="0.3926 0 0" xyz="0 -0.01 0.03"/>
+		<parent link="left_gripper_base"/>
+		<child link="left_gripper_finger"/>
+	</joint>
+	<link name="right_gripper_finger">
+		<inertial>
+			<mass value="0.01"/>
+			<inertia ixx="1.57e-7" iyy="1.57e-7" izz="6.8e-7" ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+		<visual>
+			<geometry>
+				<box size="0.008 0.008 0.05"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.005 0.005 0.05"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="r_g_finger" type="fixed">
+		<origin rpy="-0.3926 0 0" xyz="0 0.01 0.03"/>
+		<parent link="right_gripper_base"/>
+		<child link="right_gripper_finger"/>
+	</joint>
 
 	<transmission name="tran0">
 		<type>transmission_interface/SimpleTransmission</type>
@@ -168,6 +260,26 @@
 			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="motor3">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	<transmission name="tran4">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="l_g_base">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor4">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	<transmission name="tran5">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="r_g_base">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor5">
 			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
