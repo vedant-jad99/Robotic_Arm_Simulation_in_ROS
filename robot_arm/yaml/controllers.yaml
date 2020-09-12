@@ -5,3 +5,5 @@ arm_controller:
   - shoulder
   - elbow
   - wrist
+  - l_g_base
+  - r_g_base
