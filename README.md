@@ -53,11 +53,18 @@ This is a brief overview of how the arm is moveing on inputting the desired posi
 ### Final pose (after entering positions)
 ![](robot_arm/pictures/After_moving.png  )
 
+### Update: After adding gripper
+![](robot_arm/pictures/Before_input_open_grip.png )
+![](robot_arm/pictures/After_position_close_grip.png  )
+
 ## References
 I have referred the book **'Programming Robots with ROS'** for modelling the arm.
 
 ## Version
 This is version 1.0. We are planning several updates and they will be uploaded here.
+**Update:**
+- Added gripper to the urdf model. Version 1.0.1
+- Modified python script to control node. Version 1.1
 
 ## Note
 If cloning the repository, clone it in your catkin_ws/src folder and run catkin_make command.
