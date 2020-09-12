@@ -1,0 +1,1 @@
+If not cloned in catkin_ws/src/ copy this folder over there
