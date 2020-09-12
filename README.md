@@ -1,7 +1,7 @@
 # Robotic_Arm_Simulation_in_ROS
 
 ## About
-This a simulation of a 4-DOF robotic arm in gazebo, using ROS. This follows the simple architecture of a traditional industrial arm, with a base link, torso, upper arm, lower arm and hand. The position of the joints are entered by running the write_pos.py node in another terminal. This arm is designed without using meshes, hence has very basic geometrical structure. The model is spawned in gazebo.
+This a simulation of a 4-DOF robotic arm in gazebo, using ROS. This follows the simple architecture of a traditional industrial arm, with a base link, torso, upper arm, lower arm and hand. The position of the joints are entered by running the move_arm node write_pos.py program in another terminal. This arm is designed without using meshes, hence has very basic geometrical structure. The model is spawned in gazebo.
 
 ## Design
 The bot is designed by using a urdf (Unified Robotic Description Format) which is an XML file format. The links about the robots are specified in the urdf file. They are: 
@@ -40,7 +40,7 @@ trajectory_msgs/JointTrajectoryPoint[] points
   ~~~~
   
 To move the arm we are changing the position values of the `positions` list on the `JointTrajectoryPoint`, which is subsribed by gazebo node (as seen in the rqt_graph in the section below) The gazebo node takes these values and are published to `/joint_states` topic, which is subscribed by the `robot_state_publisher` node(again, refer rqt_graph) which then maps it to gazebo ui and RoboHW.
-This is a brief overview of how the arm id moveing on giving position input.
+This is a brief overview of how the arm is moveing on inputting the desired position inputs.
 
 ## Images
 
@@ -59,3 +59,5 @@ I have referred the book **'Programming Robots with ROS'** for modelling the arm
 ## Version
 This is version 1.0. We are planning several updates and they will be uploaded here.
 
+## Note
+If cloning the repository, clone it in your catkin_ws/src folder and run catkin_make command.
