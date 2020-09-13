@@ -65,6 +65,8 @@ This is version 1.0. We are planning several updates and they will be uploaded h
 **Update:**
 - Added gripper to the urdf model. Version 1.0.1
 - Modified python script to control node. Version 1.1
+- Increased range of shoulder joint.
+- Added functionality to change only position of one joint. Version 1.1.1
 
 ## Note
 If cloning the repository, clone it in your catkin_ws/src folder and run catkin_make command.
