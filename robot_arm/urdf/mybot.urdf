@@ -76,7 +76,7 @@
 	</link>
 	<joint name="shoulder" type="revolute">
 		<axis xyz="0 1 0"/>
-		<limit velocity="1.0" effort="30.0" upper="0" lower="-1.5708"/>
+		<limit velocity="1.0" effort="30.0" upper="0.6981" lower="-1.5708"/>
 		<parent link="torso"/>
 		<child link="upper_arm"/>
 		<origin rpy="0 1.5708 0" xyz="0.0 -0.1 0.45"/>
@@ -131,7 +131,7 @@
 		<child link="hand"/>
 		<origin rpy="0 0 0" xyz="0.0 0.0 0.425"/>
 	</joint>
-	<!--link name="left_gripper_base">
+	<link name="left_gripper_base">
 		<inertial>
 			<mass value="0.01"/>
 			<inertia ixx="8.23e-8" iyy="8.23e-8" izz="3.47e-7" ixy="0" ixz="0" iyz="0"/>
@@ -222,7 +222,7 @@
 		<origin rpy="-0.3926 0 0" xyz="0 0.01 0.03"/>
 		<parent link="right_gripper_base"/>
 		<child link="right_gripper_finger"/>
-	</joint-->
+	</joint>
 
 	<transmission name="tran0">
 		<type>transmission_interface/SimpleTransmission</type>
@@ -264,7 +264,7 @@
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
-	<!--transmission name="tran4">
+	<transmission name="tran4">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="l_g_base">
 			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
@@ -283,7 +283,7 @@
 			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
-	</transmission-->
+	</transmission>
 
 	<gazebo>
 		<plugin name="control" filename="libgazebo_ros_control.so"/>
